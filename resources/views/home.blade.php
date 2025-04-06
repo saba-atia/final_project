@@ -1,6 +1,139 @@
 @extends('welcome')
 @section('title','SMART PUNCH')
 @section('content')
+<style>
+
+
+.services-scroller {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding: 20px 0;
+}
+
+.services-scroller::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.services-container {
+    display: flex;
+    gap: 30px;
+    padding: 0 50px;
+}
+
+.service-card {
+    min-width: 300px;
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+.service-circle img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+.details-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.details-btn:hover {
+    background: #0056b3;
+    transform: translateX(5px);
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .scroll-arrow {
+        display: none;
+    }
+    
+    .services-container {
+        padding: 0 20px;
+    }
+}
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .service-item {
+      padding: 30px 20px;
+    }
+    
+    .service-item h3 {
+      font-size: 1.6rem;
+    }
+  }
+
+
+
+  @media (max-width: 576px) {
+    .service-item {
+      padding: 25px 15px;
+    }
+    
+    .service-item h3 {
+      font-size: 1.4rem;
+    }
+    
+    .service-item p {
+      font-size: 1rem;
+    }
+  }
+</style>
 <section id="hero" class="hero section">
 
     <div class="container">
@@ -100,68 +233,99 @@
   </section>
 
   <section id="services" class="services section light-background">
-
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <span>Services</span>
-      <h2>Services</h2>
+        <span>Services</span>
+        <h2>Services</h2>
     </div><!-- End Section Title -->
 
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-item position-relative">   
-
-           
-<img src="./assets/img/IMG/freepik__upload__73684-removebg-preview.png" width="150px"> <br> <br> <br> <br>
-            
-              <h3>Increase Productivity</h3>
-            </a>
-            <p>By automating repetitive tasks, you free up more time for what really matters. Get more done in less time!</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-item position-relative">
-<img src="./assets/img/IMG/section2.4.png" width="150px" > <br> <br> <br> <br>
-              <h3>Enhance Collaboration</h3>
-            </a>
-            <p>Our platform provides real-time collaboration tools, making teamwork smoother and more effective than ever before.</p>
-          </div>
-        </div><!-- End Service Item -->
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-item position-relative">
-<img src="./assets/img/IMG/section3.4.png" width="170px"> <br> <br> <br> <br> <br> 
-              <h3>Data-Driven Decisions</h3>
-            </a>
-            <p>Make smarter decisions by analyzing data instantly, giving you insights to drive your business forward.</p>
-          </div>
-        </div><!-- End Service Item -->
-
+    <div class="container position-relative">
+        <button class="scroll-arrow left-arrow" aria-label="Previous services">
+            <i class="bi bi-chevron-left"></i>
+        </button>
         
+        <div class="services-scroller">
+            <div class="services-container">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-circle">
+                        <img src="./assets/img/IMG/service1.png" alt="Attendance Management">
+                    </div>
+                    <h3>Attendance Management</h3>
+                    <a href="{{ route('services') }}#attendance" class="details-btn">Details <i class="bi bi-arrow-right"></i></a>
+                </div>
 
-      </div>
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-circle">
+                        <img src="./assets/img/IMG/service2.png" alt="Leave Management">
+                    </div>
+                    <h3>Leave Management</h3>
+                    <a href="{{ route('services') }}#leave" class="details-btn">Details <i class="bi bi-arrow-right"></i></a>
+                </div>
 
-    </div>
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-circle">
+                        <img src="./assets/img/IMG/service3.png" alt="Absences Management">
+                    </div>
+                    <h3>Absences Management</h3>
+                    <a href="{{ route('services') }}#absences" class="details-btn">Details <i class="bi bi-arrow-right"></i></a>
+                </div>
 
-  </section>
+                <!-- Service 4 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-circle">
+                        <img src="./assets/img/IMG/service4.png" alt="Performance Evaluations">
+                    </div>
+                    <h3>Performance Evaluations</h3>
+                    <a href="{{ route('services') }}#performance" class="details-btn">Details <i class="bi bi-arrow-right"></i></a>
+                </div>
 
-  <section id="call-to-action" class="call-to-action section accent-background">
-
-    <div class="container">
-      <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-        <div class="col-xl-10">
-          <div class="text-center">
-            <h3>Looking to take your HR employees to a state of Smart Punch ?</h3>
-           <a href="./contact.html"> <button type="button" class="btn-action"> Request a Demo</button></a>
-          </div>
+                <!-- Service 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-circle">
+                        <img src="./assets/img/IMG/service5.png" alt="Reports">
+                    </div>
+                    <h3>Reports & Analytics</h3>
+                    <a href="{{ route('services') }}#reports" class="details-btn">Details <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </section>
+        <button class="scroll-arrow right-arrow" aria-label="Next services">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+    </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const scroller = document.querySelector('.services-scroller');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const serviceCard = document.querySelector('.service-card');
+    const cardWidth = serviceCard.offsetWidth + 30; // width + gap
+
+    leftArrow.addEventListener('click', () => {
+        scroller.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+
+    rightArrow.addEventListener('click', () => {
+        scroller.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+
+    // Hide arrows when at extremes
+    scroller.addEventListener('scroll', () => {
+        leftArrow.style.display = scroller.scrollLeft <= 10 ? 'none' : 'flex';
+        rightArrow.style.display = scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 10 ? 'none' : 'flex';
+    });
+
+    // Initial state
+    leftArrow.style.display = 'none';
+});
+</script>
+  
+
 
   @endsection

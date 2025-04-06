@@ -60,20 +60,6 @@
     </div>
   </section>
 
-
-  <section id="call-to-action" class="call-to-action section accent-background">
-
-    <div class="container">
-      <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-        <div class="col-xl-10">
-          <div class="text-center">
-            <h3>Looking to take your HR employees to a state of Smart Punch ?</h3>
-            <a href="./contact.html"> <button type="button" class="btn-action"> Request a Demo</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
+ 
 
   @endsection

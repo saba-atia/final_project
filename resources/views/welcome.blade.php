@@ -18,6 +18,7 @@
    
 
     <!-- Contact Section -->
+    @include('layouts.contactsection')
         <!-- Contact Section -->
       @include('layouts.footer')
   <!-- Scroll Top -->
